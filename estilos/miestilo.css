@@ -12,7 +12,22 @@ body {
     color: #2b2b2b;
 }
 
+/* ... tus estilos anteriores ... */
 
+/* Tamaño estándar y agradable para las imágenes en las páginas de instrumentos */
+body img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    border-radius: 8px; /* Un toque estético con bordes redondeados */
+}
+
+/* Tamaño más pequeño y controlado para las miniaturas en la tabla de la página principal (pag1.html) */
+table img {
+    max-width: 100px;
+    height: auto;
+}
 
 /* Contenedor que junta el título y el botón, manteniéndolos fijos arriba */
 .header-fijo {
