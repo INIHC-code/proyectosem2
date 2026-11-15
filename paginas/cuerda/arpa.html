@@ -7,16 +7,77 @@
     <link rel="stylesheet" href="../../estilos/miestilo.css">
 </head>
 <body>
-    <h1>arpa</h1>
-    <img src="" alt="aqui imaguen">
-    <p>(este texto va ala derecha al lado de la imagen)</p>
-    <button>este se debe convertir en un contador de compras</button>
-    <h5>conoce mejor tu futuro instrumento</h5>
-    <p>y aqui va la info de tipo "cuando se creo" y etc</p>
+    <div class="header-fijo">
+        <h1>musicshop</h1>
+        <a href="../carrito.html"><button>🛒</button></a>
+    </div>
+
+    <h1>Arpa</h1>
+    <img src="" alt="aqui imagen">
+    <p>(este texto va a la derecha al lado de la imagen)</p>
     
+    <div>
+        <span>Cantidad:</span>
+        <button id="btn-disminuir">-</button>
+        <span id="cantidad-compras">0</span>
+        <button id="btn-aumentar">+</button>
+        <br><br>
+        <button id="btn-agregar-carrito">Añadir al carrito</button>
+    </div>
+
+    <h5>conoce mejor tu futuro instrumento</h5>
+    <p>El arpa es un instrumento de cuerda pulsada compuesto por un marco resonante y una serie de cuerdas paralelas que van desde la caja de resonancia hasta la columna.</p>
+    
+    <script>
+        let cantidad = 0;
+        const spanCantidad = document.getElementById('cantidad-compras');
+        
+        document.getElementById('btn-aumentar').addEventListener('click', () => {
+            cantidad++;
+            spanCantidad.textContent = cantidad;
+        });
+
+        document.getElementById('btn-disminuir').addEventListener('click', () => {
+            if (cantidad > 0) {
+                cantidad--;
+                spanCantidad.textContent = cantidad;
+            }
+        });
+
+        document.getElementById('btn-agregar-carrito').addEventListener('click', () => {
+            if (cantidad > 0) {
+                // Obtenemos el carrito actual del localStorage (o una lista vacía si no hay nada)
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+                const nombreInstrumento = "Arpa";
+                const precioInstrumento = 1200000;
+
+                // Verificamos si este instrumento ya estaba en el carrito
+                const index = carrito.findIndex(item => item.nombre === nombreInstrumento);
+
+                if (index !== -1) {
+                    // Si ya estaba, le sumamos la nueva cantidad
+                    carrito[index].cantidad += cantidad;
+                } else {
+                    // Si es nuevo, lo agregamos a la lista
+                    carrito.push({
+                        nombre: nombreInstrumento,
+                        cantidad: cantidad,
+                        precioUnitario: precioInstrumento
+                    });
+                }
+
+                // Guardamos la lista actualizada en el localStorage
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                alert('¡Instrumento(s) agregado(s) al carrito!');
+            } else {
+                alert('Selecciona al menos 1 unidad');
+            }
+        });
+    </script>
 </body>
 <footer>
-        <p>ihan nicolas hernandez campos 160005644 <br> breiden fabian caro contreras 160005647 </p>
-            <p>universidad de los llanos</p>                 
-     </footer>
+    <p>ihan nicolas hernandez campos 160005644 <br> breides fabian caro contreras 160005647 </p>
+    <p>universidad de los llanos</p>                 
+</footer>
 </html>

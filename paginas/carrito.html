@@ -4,8 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>carrito</title>
+    <link rel="stylesheet" href="../estilos/miestilo.css">
 </head>
 <body>
-    
+    <div class="header-fijo">
+        <h1>musicshop</h1>
+        <a href="pag1.html"><button>🏠</button></a>
+    </div>
+
+    <h3 class="Texto">Tu Carrito de Compras</h3>
+    <hr>
+
+    <div>
+        <h3>Resumen de tu pedido</h3>
+        <table id="tablas">
+            <thead>
+                <tr>
+                    <th>Instrumento</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla">
+                <!-- Aquí se llenarán los productos dinámicamente -->
+            </tbody>
+        </table>
+        
+        <div>
+            <h4 id="tabla-total">Total a pagar: $0</h4>
+        </div>
+
+        <div>
+            <button id="btn-finalizar">Finalizar Compra</button>
+            <a href="pag1.html"><button>Seguir Comprando</button></a>
+        </div>
+    </div>
+
+    <script>
+        // Leemos la lista del carrito desde el localStorage
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const cuerpoTabla = document.getElementById('cuerpo-tabla');
+        let granTotal = 0;
+
+        if (carrito.length > 0) {
+            cuerpoTabla.innerHTML = ""; // Limpiamos la tabla por si acaso
+            
+            carrito.forEach(producto => {
+                const subtotal = producto.cantidad * producto.precioUnitario;
+                granTotal += subtotal;
+
+                // Creamos una fila por cada producto en el carrito
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${producto.nombre}</td>
+                    <td style="text-align: center;">${producto.cantidad}</td>
+                    <td>$${producto.precioUnitario.toLocaleString()}</td>
+                    <td>$${subtotal.toLocaleString()}</td>
+                `;
+                cuerpoTabla.appendChild(fila);
+            });
+
+            document.getElementById('tabla-total').textContent = 'Total a pagar: $' + granTotal.toLocaleString();
+        } else {
+            cuerpoTabla.innerHTML = `<tr><td colspan="4" style="text-align: center;">Tu carrito está vacío</td></tr>`;
+        }
+
+        // Botón para finalizar compra
+        document.getElementById('btn-finalizar').addEventListener('click', () => {
+            if (carrito.length > 0) {
+                alert('¡Compra exitosa! Gracias por tu compra en MusicShop.');
+                localStorage.removeItem('carrito'); // Vaciamos el carrito
+                window.location.href = 'pag1.html';
+            } else {
+                alert('Tu carrito está vacío.');
+            }
+        });
+    </script>
+
+    <hr>
+    <footer>
+        <p>ihan nicolas hernandez campos 160005644 <br> breides fabian caro contreras 160005647 </p>
+        <p>universidad de los llanos</p>                 
+    </footer>
 </body>
 </html>
