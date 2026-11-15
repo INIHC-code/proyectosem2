@@ -1,0 +1,37 @@
+/* Estilo general para toda la página */
+body {
+    /* Color de fondo tipo madera suave y cálido */
+    background-color: #d4a373;
+    
+    /* Fuente legible y moderna */
+    font-family: Arial, sans-serif;
+    
+    /* Margen y color de texto general para que resalte bien sobre la madera */
+    margin: 0;
+    padding: 20px;
+    color: #2b2b2b;
+}
+
+
+
+/* Contenedor que junta el título y el botón, manteniéndolos fijos arriba */
+.header-fijo {
+    position: sticky;
+    top: 0;
+    background-color: #d4a373; /* Mismo color de fondo madera para que combine */
+    padding: 10px 0;
+    z-index: 1000; /* Asegura que quede por encima de todo lo demás al bajar */
+    display: flex;         /* Pone los elementos en fila (uno al lado del otro) */
+    align-items: center;   /* Los alinea verticalmente al centro */
+    gap: 15px;             /* Espacio entre el título y el botón */
+}
+
+/* Opcional: un toque bonito al botón del carrito */
+.header-fijo button {
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #f4f1de;
+}
