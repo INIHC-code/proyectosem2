@@ -6,47 +6,96 @@ body {
     /* Fuente legible y moderna */
     font-family: Arial, sans-serif;
     
-    /* Margen y color de texto general para que resalte bien sobre la madera */
+    /* Márgenes y color de texto general */
     margin: 0;
-    padding: 20px;
+    padding: 20px 40px;
     color: #2b2b2b;
+    
+    /* Centramos el contenido general de la página en pantallas grandes para que no quede todo a la izquierda */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* ... tus estilos anteriores ... */
+/* Barra superior fija con el título a la izquierda y el carrito a la derecha */
+.header-fijo {
+    position: sticky;
+    top: 0;
+    background-color: #d4a373;
+    padding: 15px 10px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Título a la izquierda, botón carrito a la derecha */
+    align-items: center;
+    border-bottom: 2px solid #b08968; /* Detalle estético separador */
+}
+
+/* Estilo para el botón del carrito */
+.header-fijo button {
+    padding: 10px 16px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background-color: #f4f1de;
+    transition: background-color 0.2s;
+}
+
+.header-fijo button:hover {
+    background-color: #e3dec3;
+}
+
+/* Estilos para tablas */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* Clases anteriores y elementos centrados */
+.Texto {
+    text-align: center;
+}
+
+#tablas {
+    border: 2px solid black;
+}
 
 /* Tamaño estándar y agradable para las imágenes en las páginas de instrumentos */
 body img {
     max-width: 300px;
     height: auto;
     display: block;
-    margin: 10px 0;
-    border-radius: 8px; /* Un toque estético con bordes redondeados */
+    margin: 15px auto; /* Centra la imagen */
+    border-radius: 8px;
 }
 
-/* Tamaño más pequeño y controlado para las miniaturas en la tabla de la página principal (pag1.html) */
+/* Tamaño controlado para las miniaturas en la tabla principal */
 table img {
-    max-width: 100px;
+    max-width: 90px;
     height: auto;
+    margin: 0 auto;
+    display: block;
 }
 
-/* Contenedor que junta el título y el botón, manteniéndolos fijos arriba */
-.header-fijo {
-    position: sticky;
-    top: 0;
-    background-color: #d4a373; /* Mismo color de fondo madera para que combine */
-    padding: 10px 0;
-    z-index: 1000; /* Asegura que quede por encima de todo lo demás al bajar */
-    display: flex;         /* Pone los elementos en fila (uno al lado del otro) */
-    align-items: center;   /* Los alinea verticalmente al centro */
-    gap: 15px;             /* Espacio entre el título y el botón */
+/* Pie de página centrado */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #b08968;
+}
+/* Hace que los títulos con enlaces se vean como texto normal pero sigan funcionando */
+a.link-titulo {
+    color: inherit;          /* Hereda el color del texto de su contenedor */
+    text-decoration: none;   /* Le quita la línea subrayada del enlace */
 }
 
-/* Opcional: un toque bonito al botón del carrito */
-.header-fijo button {
-    padding: 8px 12px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: 1px solid #555;
-    background-color: #f4f1de;
-}

@@ -35,11 +35,13 @@
             <h4 id="tabla-total">Total a pagar: $0</h4>
         </div>
 
-        <div>
+        
+    </div>
+     <div>
             <button id="btn-finalizar">Finalizar Compra</button>
+            <button id="btn-vaciar" style="background-color: #d90429; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Vaciar Carrito</button>
             <a href="pag1.html"><button>Seguir Comprando</button></a>
         </div>
-    </div>
 
     <script>
         // Leemos la lista del carrito desde el localStorage
@@ -78,6 +80,18 @@
                 window.location.href = 'pag1.html';
             } else {
                 alert('Tu carrito está vacío.');
+            }
+        });
+                // Botón para vaciar el carrito completamente
+        document.getElementById('btn-vaciar').addEventListener('click', () => {
+            if (carrito.length > 0) {
+                if (confirm('¿Estás seguro de que deseas vaciar el carrito?')) {
+                    localStorage.removeItem('carrito'); // Borra los datos guardados
+                    cuerpoTabla.innerHTML = `<tr><td colspan="4" style="text-align: center;">Tu carrito está vacío</td></tr>`;
+                    document.getElementById('tabla-total').textContent = 'Total a pagar: $0';
+                }
+            } else {
+                alert('El carrito ya está vacío.');
             }
         });
     </script>
