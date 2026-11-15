@@ -1,23 +1,23 @@
-/* Estilo general para toda la página */
+/* estilo pag */
 body {
-    /* Color de fondo tipo madera suave y cálido */
+    
     background-color: #d4a373;
     
-    /* Fuente legible y moderna */
+    
     font-family: Arial, sans-serif;
     
-    /* Márgenes y color de texto general */
+    
     margin: 0;
     padding: 20px 40px;
     color: #2b2b2b;
     
-    /* Centramos el contenido general de la página en pantallas grandes para que no quede todo a la izquierda */
+    
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Barra superior fija con el título a la izquierda y el carrito a la derecha */
+/* Barra fija */
 .header-fijo {
     position: sticky;
     top: 0;
@@ -25,12 +25,12 @@ body {
     padding: 15px 10px;
     z-index: 1000;
     display: flex;
-    justify-content: space-between; /* Título a la izquierda, botón carrito a la derecha */
+    justify-content: space-between; 
     align-items: center;
-    border-bottom: 2px solid #b08968; /* Detalle estético separador */
+    border-bottom: 2px solid #b08968;
 }
 
-/* Estilo para el botón del carrito */
+/* Estilo carrt */
 .header-fijo button {
     padding: 10px 16px;
     font-size: 18px;
@@ -45,7 +45,7 @@ body {
     background-color: #e3dec3;
 }
 
-/* Estilos para tablas */
+/*tablas */
 table {
     width: 100%;
     margin: 20px 0;
@@ -78,6 +78,28 @@ body img {
     border-radius: 8px;
 }
 
+/* producto imganen de lado */
+.producto-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.producto-contenedor img {
+    margin: 0;
+    flex-shrink: 0;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.producto-contenedor p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
 /* Tamaño controlado para las miniaturas en la tabla principal */
 table img {
     max-width: 90px;
@@ -95,7 +117,7 @@ footer {
 }
 /* Hace que los títulos con enlaces se vean como texto normal pero sigan funcionando */
 a.link-titulo {
-    color: inherit;          /* Hereda el color del texto de su contenedor */
-    text-decoration: none;   /* Le quita la línea subrayada del enlace */
+    color: inherit;         
+    text-decoration: none;   
 }
 
