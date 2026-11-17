@@ -1,5 +1,4 @@
-// Lógica para el incremento, decremento y agregar al carrito en las páginas de instrumentos
-
+q
 let cantidad = 0;
 const spanCantidad = document.getElementById('cantidad-compras');
 
@@ -28,14 +27,14 @@ if (btnAgregarCarrito) {
         if (cantidad > 0) {
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-            // Identificamos el producto según el título de la página (h1)
+            
             const tituloH1 = document.querySelector('title');
             const nombreInstrumento = tituloH1 ? tituloH1.textContent.trim() : "Instrumento";
 
-            // Asignamos el precio según el nombre o detectamos el producto
-            let precioInstrumento = 150000; // precio por defecto
             
-            // Mapeo de precios según el instrumento
+            let precioInstrumento = 150000; 
+            
+            
             const preciosMap = {
                 "guitarra electrica": 850000,
                 "guitarra": 70000,
