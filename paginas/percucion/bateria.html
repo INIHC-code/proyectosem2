@@ -31,49 +31,7 @@
     <p>La batería moderna surgió a finales del siglo XIX y principios del siglo XX en los Estados Unidos. Antes de su aparición, los músicos utilizaban varios instrumentos de percusión por separado, como el bombo, la caja y los platillos.
 
 Con el desarrollo de los pedales, una sola persona pudo tocar varios instrumentos de percusión al mismo tiempo. Así nació la batería moderna, que rápidamente se convirtió en una pieza fundamental en bandas de jazz, rock y otros géneros musicales.</p>
-    
-    <script>
-        let cantidad = 0;
-        const spanCantidad = document.getElementById('cantidad-compras');
-        
-        document.getElementById('btn-aumentar').addEventListener('click', () => {
-            cantidad++;
-            spanCantidad.textContent = cantidad;
-        });
-
-        document.getElementById('btn-disminuir').addEventListener('click', () => {
-            if (cantidad > 0) {
-                cantidad--;
-                spanCantidad.textContent = cantidad;
-            }
-        });
-
-        document.getElementById('btn-agregar-carrito').addEventListener('click', () => {
-            if (cantidad > 0) {
-                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-                const nombreInstrumento = "Batería acústica";
-                const precioInstrumento = 1800000;
-
-                const index = carrito.findIndex(item => item.nombre === nombreInstrumento);
-
-                if (index !== -1) {
-                    carrito[index].cantidad += cantidad;
-                } else {
-                    carrito.push({
-                        nombre: nombreInstrumento,
-                        cantidad: cantidad,
-                        precioUnitario: precioInstrumento
-                    });
-                }
-
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                alert('¡Instrumento(s) agregado(s) al carrito!');
-            } else {
-                alert('Selecciona al menos 1 unidad');
-            }
-        });
-    </script>
+     <script src="../../java/miutil.js"></script>
 </body>
 <footer>
     <p>ihan nicolas hernandez campos 160005644 <br> breides fabian caro contreras 160005647 </p>

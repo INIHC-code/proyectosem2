@@ -32,53 +32,7 @@
 
 A lo largo de los siglos, el instrumento fue evolucionando y extendiéndose por Europa, Asia y África. Durante la Edad Media y el Renacimiento, el arpa ganó gran popularidad entre los músicos y las cortes reales europeas. En el siglo XIX se desarrolló el sistema de pedales moderno, permitiendo tocar en diferentes tonalidades con mayor facilidad.</p>
     
-    <script>
-        let cantidad = 0;
-        const spanCantidad = document.getElementById('cantidad-compras');
-        
-        document.getElementById('btn-aumentar').addEventListener('click', () => {
-            cantidad++;
-            spanCantidad.textContent = cantidad;
-        });
-
-        document.getElementById('btn-disminuir').addEventListener('click', () => {
-            if (cantidad > 0) {
-                cantidad--;
-                spanCantidad.textContent = cantidad;
-            }
-        });
-
-        document.getElementById('btn-agregar-carrito').addEventListener('click', () => {
-            if (cantidad > 0) {
-                // Obtenemos el carrito actual del localStorage (o una lista vacía si no hay nada)
-                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-                const nombreInstrumento = "Arpa";
-                const precioInstrumento = 1200000;
-
-                // Verificamos si este instrumento ya estaba en el carrito
-                const index = carrito.findIndex(item => item.nombre === nombreInstrumento);
-
-                if (index !== -1) {
-                    // Si ya estaba, le sumamos la nueva cantidad
-                    carrito[index].cantidad += cantidad;
-                } else {
-                    // Si es nuevo, lo agregamos a la lista
-                    carrito.push({
-                        nombre: nombreInstrumento,
-                        cantidad: cantidad,
-                        precioUnitario: precioInstrumento
-                    });
-                }
-
-                // Guardamos la lista actualizada en el localStorage
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                alert('¡Instrumento(s) agregado(s) al carrito!');
-            } else {
-                alert('Selecciona al menos 1 unidad');
-            }
-        });
-    </script>
+     <script src="../../java/miutil.js"></script>
 </body>
 <footer>
     <p>ihan nicolas hernandez campos 160005644 <br> breides fabian caro contreras 160005647 </p>

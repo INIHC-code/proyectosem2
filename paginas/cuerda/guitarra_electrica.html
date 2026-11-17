@@ -34,53 +34,7 @@ Los primeros modelos utilizaban pastillas magnéticas, dispositivos capaces de c
 
 En los años 50, compañías como Fender y Gibson revolucionaron el instrumento. Leo Fender lanzó la Telecaster en 1950 y la Stratocaster en 1954, mientras que Gibson popularizó la legendaria Les Paul. Desde entonces, la guitarra eléctrica se convirtió en uno de los instrumentos más importantes de la música moderna.</p>
     
-    <script>
-        let cantidad = 0;
-        const spanCantidad = document.getElementById('cantidad-compras');
-        
-        document.getElementById('btn-aumentar').addEventListener('click', () => {
-            cantidad++;
-            spanCantidad.textContent = cantidad;
-        });
-
-        document.getElementById('btn-disminuir').addEventListener('click', () => {
-            if (cantidad > 0) {
-                cantidad--;
-                spanCantidad.textContent = cantidad;
-            }
-        });
-
-        document.getElementById('btn-agregar-carrito').addEventListener('click', () => {
-            if (cantidad > 0) {
-                // Obtenemos el carrito actual del localStorage (o una lista vacía si no hay nada)
-                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-                const nombreInstrumento = "Guitarra eléctrica";
-                const precioInstrumento = 350000;
-
-                // Verificamos si este instrumento ya estaba en el carrito
-                const index = carrito.findIndex(item => item.nombre === nombreInstrumento);
-
-                if (index !== -1) {
-                    // Si ya estaba, le sumamos la nueva cantidad
-                    carrito[index].cantidad += cantidad;
-                } else {
-                    // Si es nuevo, lo agregamos a la lista
-                    carrito.push({
-                        nombre: nombreInstrumento,
-                        cantidad: cantidad,
-                        precioUnitario: precioInstrumento
-                    });
-                }
-
-                // Guardamos la lista actualizada en el localStorage
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                alert('¡Instrumento(s) agregado(s) al carrito!');
-            } else {
-                alert('Selecciona al menos 1 unidad');
-            }
-        });
-    </script>
+    <script src="../../java/miutil.js"></script>
 </body>
 <footer>
     <p>ihan nicolas hernandez campos 160005644 <br> breides fabian caro contreras 160005647 </p>

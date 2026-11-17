@@ -32,48 +32,7 @@
 
 Durante los períodos del Renacimiento y el Barroco, el trombón fue utilizado principalmente en música religiosa y ceremonial. Con el paso del tiempo, se convirtió en un instrumento esencial en orquestas, bandas sinfónicas, grupos de jazz y conjuntos de música popular.</p>
     
-    <script>
-        let cantidad = 0;
-        const spanCantidad = document.getElementById('cantidad-compras');
-        
-        document.getElementById('btn-aumentar').addEventListener('click', () => {
-            cantidad++;
-            spanCantidad.textContent = cantidad;
-        });
-
-        document.getElementById('btn-disminuir').addEventListener('click', () => {
-            if (cantidad > 0) {
-                cantidad--;
-                spanCantidad.textContent = cantidad;
-            }
-        });
-
-        document.getElementById('btn-agregar-carrito').addEventListener('click', () => {
-            if (cantidad > 0) {
-                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-                const nombreInstrumento = "Trombón";
-                const precioInstrumento = 550000;
-
-                const index = carrito.findIndex(item => item.nombre === nombreInstrumento);
-
-                if (index !== -1) {
-                    carrito[index].cantidad += cantidad;
-                } else {
-                    carrito.push({
-                        nombre: nombreInstrumento,
-                        cantidad: cantidad,
-                        precioUnitario: precioInstrumento
-                    });
-                }
-
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                alert('¡Instrumento(s) agregado(s) al carrito!');
-            } else {
-                alert('Selecciona al menos 1 unidad');
-            }
-        });
-    </script>
+     <script src="../../java/miutil.js"></script>
 </body>
 <footer>
     <p>ihan nicolas hernandez campos 160005644 <br> breides fabian caro contreras 160005647 </p>
